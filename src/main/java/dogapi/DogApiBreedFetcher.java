@@ -46,12 +46,12 @@ public class DogApiBreedFetcher implements BreedFetcher {
                 return result;
             }
             else {
-                throw new RuntimeException("Failed");
+                throw new BreedNotFoundException("Could not find sub-breeds for " + breed);
             }
         }
 
         catch (IOException | JSONException event) {
-            throw new RuntimeException(event);
+            throw new BreedNotFoundException("Failed to fetch sub-breeds for " + breed);
         }
     }
 }
